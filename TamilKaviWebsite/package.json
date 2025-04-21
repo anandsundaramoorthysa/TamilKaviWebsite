@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://anandsundaramoorthysa.github.io/tamilkavi",
+  "homepage": "https://anandsundaramoorthysa.github.io/TamilKaviWebsite",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
