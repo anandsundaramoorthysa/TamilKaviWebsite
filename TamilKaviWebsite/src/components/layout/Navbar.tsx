@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import {
-  Book, Github, Heart, Home, Info, Package, Send, Users, Menu, X
+  Book, Github, Heart, Home, Info, Package, Send, Users, Menu, X, Download
 } from 'lucide-react';
 
 const Navbar = () => {
@@ -17,13 +17,20 @@ const Navbar = () => {
     { name: 'Package Info', path: '/package', icon: <Package className="h-4 w-4 mr-1" /> },
     { name: 'Team', path: '/team', icon: <Users className="h-4 w-4 mr-1" /> },
     { name: 'Submit', path: '/submit', icon: <Send className="h-4 w-4 mr-1" /> },
+    // New nav item for the dataset page
+    { name: 'Dataset', path: 'https://huggingface.co/datasets/anandsundaramoorthysa/TamilKavi', icon: <Download className="h-4 w-4 mr-1" />, external: true },
   ];
 
   return (
     <header className="bg-white shadow-sm">
       <div className="container-custom py-4">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center">
+          <Link to="/" className="flex items-center space-x-2">
+            <img
+              src="/TamilKavi3.png"
+              alt="TamilKavi Logo"
+              className="w-8 h-8 rounded-full border border-tamil-blue shadow"
+            />
             <span className="text-2xl font-bold text-tamil-blue">
               Tamil<span className="text-tamil-gold">Kavi</span>!
             </span>
@@ -34,7 +41,9 @@ const Navbar = () => {
             {navItems.map((item) => (
               <Link
                 key={item.name}
-                to={item.path}
+                to={item.external ? item.path : item.path}
+                target={item.external ? "_blank" : "_self"}
+                rel={item.external ? "noopener noreferrer" : ""}
                 className={cn(
                   "px-3 py-2 rounded-md text-sm font-medium flex items-center",
                   location.pathname === item.path
@@ -75,7 +84,9 @@ const Navbar = () => {
             {navItems.map((item) => (
               <Link
                 key={item.name}
-                to={item.path}
+                to={item.external ? item.path : item.path}
+                target={item.external ? "_blank" : "_self"}
+                rel={item.external ? "noopener noreferrer" : ""}
                 onClick={() => setMobileOpen(false)}
                 className={cn(
                   "block px-4 py-2 rounded-md text-sm font-medium flex items-center",

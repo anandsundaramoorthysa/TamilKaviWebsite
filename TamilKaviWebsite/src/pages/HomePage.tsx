@@ -14,11 +14,20 @@ const HomePage = () => {
       <section className="bg-gradient-to-br from-tamil-blue to-tamil-blue-dark text-white py-20">
         <div className="container-custom">
           <div className="flex flex-col items-center text-center">
+            <img
+              src="/TamilKavi4.png"
+              alt="TamilKavi Logo"
+              className="w-24 h-24 mb-6 rounded-full border-4 border-white shadow-lg p-2"
+            />
+
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white">
               Tamil<span className="text-tamil-gold">Kavi</span>!
             </h1>
+            <p className="text-xl md:text-2xl mb-4 max-w-2xl tamil-text">
+              We proudly release TamilKavi as a <strong>Python package</strong> and as a <strong>Dataset on Hugging Face</strong>. Access, explore, and contribute to Tamil Kavithaigal programmatically or through your Kavithai!
+            </p>
             <p className="text-xl md:text-2xl mb-8 max-w-2xl tamil-text">
-            Tamil-il codingum, kavithaiyum kalandhu oru pudhu ulagam-a kattrom pathu and use panni enjoy pannunga!
+              Tamil-il codingum, kavithaiyum kalandhu oru pudhu ulagam-a kattrom pathu and use panni enjoy pannunga!
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <a
@@ -60,7 +69,7 @@ const HomePage = () => {
               </div>
               <h3 className="text-xl font-semibold mb-2">எளிதாக அணுகலாம்</h3>
               <p className="text-gray-600">
-                இந்த package-ஐ நீங்க website / app development-க்கு, AI & ML training-க்கும் or any other purposeku use பண்ணலாம் – இல்லை என்றால் ஒரு rasigana ரசிக்கலாம்!
+                இந்த package-ஐ நீங்க enna purposekagavum use பண்ணலாம் – இல்லை என்றால் ஒரு rasigana ரசிக்கலாம்!
               </p>
             </div>
           </div>
@@ -72,7 +81,7 @@ const HomePage = () => {
         <div className="container-custom text-center">
           <h2 className="text-3xl font-bold mb-6">இணைந்து கொள்ளுங்கள்</h2>
           <p className="text-lg mb-8 max-w-2xl mx-auto">
-            தமிழ்மொழி இலக்கியத்தை பாதுகாக்கவும், உங்க கவிதையைப் பகிரவும், TamilKavi-யுடன் நீங்களும் வாருங்கள்.
+            தமிழ்மொழி இலக்கியத்தை இணையத்தில் வளர்க்க, உங்க கவிதையைப் பகிரவும், TamilKavi-க்குள் நீங்களும் வாருங்கள்.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link to="/contribute" className="btn-primary">
