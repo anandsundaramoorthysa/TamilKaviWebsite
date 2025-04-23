@@ -144,7 +144,7 @@ const TeamPage = () => {
             <a
               href="https://github.com/Rohith20062006"
               target="_blank"
-              rel="noopener noreferre"
+              rel="noopener noreferrer"
               className="w-40 flex flex-col items-center text-center bg-white rounded-2xl shadow-sm border border-gray-200 hover:shadow-md transform hover:scale-[1.02] transition-all duration-300 p-4"
             >
               <img
