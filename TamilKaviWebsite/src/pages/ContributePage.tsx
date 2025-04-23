@@ -52,7 +52,7 @@ const ContributePage = () => {
                   <li className="pl-2">
                     <span className="font-medium">Follow coding standards</span>
                     <p className="text-gray-600 mt-1 pl-6">
-                      Please adhere to the coding style and best practices used throughout the project. This includes proper formatting, naming conventions, and commenting.
+                      Please adhere to the coding style and best practices used throughout the project, including the <a href="https://peps.python.org/pep-0008/" target="_blank" rel="noopener noreferrer" className="text-tamil-blue-dark hover:underline">PEP-8 format</a> for Python code. This includes proper formatting, naming conventions, and commenting.
                     </p>
                   </li>
                   <li className="pl-2">
@@ -104,7 +104,7 @@ const ContributePage = () => {
                 <h2 className="text-xl sm:text-2xl font-bold">Contributing via GitHub</h2>
                 <p className="text-gray-700">
                   If you're familiar with GitHub, this is our preferred method as it maintains proper versioning
-                  and attribution of contributions.
+                  and attribution of contributions. You will be directly adding data to the project's source files.
                 </p>
 
                 {/* Steps */}
@@ -113,19 +113,33 @@ const ContributePage = () => {
                   <ol className="list-decimal list-inside space-y-3 text-gray-800">
                     <li>
                       <span className="font-medium">Fork the repository</span>
-                      <p className="text-gray-600 ml-5">Start by forking our GitHub repository to your own account.</p>
+                      <p className="text-gray-600 ml-5">Start by forking our <a href="https://github.com/anandsundaramoorthysa/TamilKavi" target="_blank" rel="noopener noreferrer" className="text-tamil-blue-dark hover:underline">GitHub repository</a> to your own account.</p>
                     </li>
                     <li>
-                      <span className="font-medium">Understand the structure</span>
-                      <p className="text-gray-600 ml-5">Our data follows this hierarchy: author → book → title → kavithai</p>
+                      <span className="font-medium">Navigate to the data directory</span>
+                      <p className="text-gray-600 ml-5">
+                        In your forked repository, navigate to the `tamilkavi/kavisrc/` directory.
+                      </p>
+                    </li>
+                     <li>
+                      <span className="font-medium">Find or create the author's file</span>
+                      <p className="text-gray-600 ml-5">
+                        Look for a JSON file named after the author (e.g., `jothi.json`). If the author doesn't exist, create a new JSON file using their name in lowercase.
+                      </p>
                     </li>
                     <li>
-                      <span className="font-medium">Add your poem</span>
-                      <p className="text-gray-600 ml-5">Either add to an existing author's file or create a new one following our JSON structure.</p>
+                      <span className="font-medium">Add/Update the JSON data</span>
+                      <p className="text-gray-600 ml-5">
+                         Add or update the poem data within the author's JSON file, following the specified structure for `author`, `contact`, and the `books` array. Ensure the structure for each `book` and `context` entry is correct.
+                      </p>
                     </li>
                     <li>
-                      <span className="font-medium">Submit a pull request</span>
-                      <p className="text-gray-600 ml-5">Create a PR with a clear title and description of your contribution.</p>
+                      <span className="font-medium">Commit your changes</span>
+                      <p className="text-gray-600 ml-5">Commit the changes to your forked repository with a clear and concise commit message.</p>
+                    </li>
+                    <li>
+                      <span className="font-medium">Submit a pull request (PR)</span>
+                      <p className="text-gray-600 ml-5">Create a pull request from your forked repository's branch to the main `TamilKavi` repository's `main` branch. Provide a clear title and description of the poems you've added or updated.</p>
                     </li>
                   </ol>
                 </div>
@@ -138,26 +152,32 @@ const ContributePage = () => {
                   </h4>
                   <pre className="bg-gray-800 text-green-400 p-4 rounded-md overflow-x-auto text-sm">
                     {`{
-  "author": "Bharathiyar",
-  "contact": "",
-  "books": [
-    {
-      "booktitle": "Desiyam",
-      "coverimage": "",
-      "description": "Patriotic poems",
-      "category": "Patriotic",
-      "context": [
-        {
-          "title": "வாழ்க நிரந்தரம்",
-          "line": "வாழ்க நிரந்தரம் வாழ்க தமிழ்மொழி...",
-          "meaning": "Long live Tamil language..."
-        }
-      ]
-    }
+  "author": "jothi",
+  "contact": "sanand03072005@gamil.com",
+  "books":[
+      {
+          "booktitle": "இன்பமில்லா-இதயத்திலிருந்து",
+          "booktitle_tanglish": "inbamilla-ithayathilirundhu",
+          "description": "சாதிக்க தூதிக்கும் ஒரு சாதாரண மாணவன்",
+          "category": "Feelings",
+          "context":[
+              {
+                  "title": "God-Murugan-Song",
+                  "line": "பிறப்பிலும் முருகனை, இறப்பிலும் இறைவனை, அனைத்திலும் அவனை கொண்டு இனிதே தொடங்குவோம்!.",
+                  "meaning": "எனது பிறப்பிலும் முருகனை, எனது இறப்பிலும் அவனை, எனது வாழ்வின் ஒவ்வொரு கட்டத்திலும் அவனை நினைத்து இனிதே தொடங்குவோம்!."
+              }
+              // Add more poem contexts here
+          ]
+      }
+      // Add more books here
   ]
 }`}
                   </pre>
+                   <div className="mt-4 bg-red-100 border-l-4 border-red-500 text-red-800 p-4 rounded-md text-sm">
+                    <strong>⚠️ Important:</strong> Please ensure the JSON structure is valid and follows the format precisely. Invalid JSON will cause errors.
+                  </div>
                 </div>
+
 
                 {/* CTA Button */}
                 <div className="pt-4">
@@ -192,13 +212,45 @@ const ContributePage = () => {
 
                 <h3 className="text-lg font-semibold mt-6 mb-2">What You'll Need:</h3>
                 <ul className="list-disc list-inside space-y-2">
-                  <li>Author Name</li>
-                  <li>Book Name (optional)</li>
-                  <li>Kavithai Title</li>
-                  <li>Kavithai Text</li>
-                  <li>Email (optional, for attribution)</li>
-                  <li>GitHub username (if any)</li>
+                  <li>✍️ Author Original Name</li>
+                  <li>📘 Author Book Name</li>
+                  <li>📧 Contact Email</li>
+                  <li>📑 Book Title (Tamil)</li>
+                  <li>📑 Book Title (Tanglish)</li>
+                  <li>📝 Book Description</li>
+                  <li>🏷️ Poem Category</li>
+                  <li>
+                    📂 Upload your poetry document{' '}
+                    <span className="text-sm text-gray-600">(under 100 MB, plain text or .docx preferred)</span>
+                  </li>
                 </ul>
+
+                {/* Sample JSON */}
+                <div className="bg-gray-50 p-4 rounded-md mt-6">
+                  <h4 className="font-semibold mb-2 flex items-center text-gray-800">
+                    <FileJson className="mr-2 h-5 w-5" />
+                    Sample Document Format
+                  </h4>
+                  <pre className="bg-gray-800 text-green-400 p-4 rounded-md overflow-x-auto text-sm whitespace-pre-wrap">
+                    {`Title: God-Murugan-Song
+Kavithai: பிறப்பிலும் முருகனை, இறப்பிலும் இறைவனை, அனைத்திலும் அவனை கொண்டு இனிதே தொடங்குவோம்!.
+Meaning: எனது பிறப்பிலும் முருகனை, எனது இறப்பிலும் அவனை, எனது வாழ்வின் ஒவ்வொரு கட்டத்திலும் அவனை நினைத்து இனிதே தொடங்குவோம்!.
+
+Title: Mother-Love
+Kavithai: தாலாட்டில் வளர்ந்தவன், தனிமையில் வளரும் கொடுமைகளை, வார்த்தையில் சொல்ல இயலாது.
+Meaning: தாயின் மடியில் நன்காக, அன்பாக வளர்க்கப்பட்ட ஒரு குழந்தை, பிறகு தனிமையில் வளர நேரிடும் போது எதிர்கொள்ளும் வேதனைகள் மற்றும் துன்பங்களை வார்த்தைகளால் விவரிக்க முடியாது. அந்த அனுபவம் மிகுந்த மன வேதனையைக் கொடுக்கும்.`}
+                  </pre>
+
+                  <div className="mt-4 bg-red-100 border-l-4 border-red-500 text-red-800 p-4 rounded-md text-sm">
+                    <strong>⚠️ Important:</strong> Please <span className="font-semibold">do not submit kavithaigal written by other authors</span> unless you have explicit permission. We will not accept or include plagiarized content.
+                  </div>
+
+                  <div className="mt-4 bg-green-100 border-l-4 border-green-500 text-green-800 p-4 rounded-md text-sm">
+                    📦 Once we review and approve your submission, it will be added to our <span className="font-semibold">Python Package</span>, listed on the <span className="font-semibold">Website – Preview Poems Page</span>, and published in our <span className="font-semibold">Hugging Face Dataset</span>.
+                  </div>
+                </div>
+
+
 
                 <p className="mt-6">
                   Our team will review submissions and add them to the repository, with full attribution to the contributor.

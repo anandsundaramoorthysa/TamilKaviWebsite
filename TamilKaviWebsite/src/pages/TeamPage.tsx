@@ -143,7 +143,7 @@ const TeamPage = () => {
             </a>
 
             <a
-              href="https://github.com/contributor2"
+              href="https://github.com/Rohith20062006"
               target="_blank"
               rel="noopener noreferrer"
               className="w-40 flex flex-col items-center text-center bg-white rounded-2xl shadow-sm border border-gray-200 hover:shadow-md transform hover:scale-[1.02] transition-all duration-300 p-4"
@@ -164,7 +164,7 @@ const TeamPage = () => {
         <div className="max-w-3xl mx-auto text-center py-12 px-6 bg-white/70 backdrop-blur-md border border-tamil-earth rounded-xl shadow">
           <h2 className="text-2xl font-semibold text-tamil-blue-dark mb-4">Enga Kooda Serunga!</h2>
           <p className="text-base text-gray-700 mb-6">
-            Nee oru kavignana? Developer-a? Illa Tamil rasigan-a? Tamil literature-ai digital-la preserve panna unga udhavi venum!
+            Neenga oru kavingana? Developer-a? Illa Tamil rasigan-a? Tamil literature-ai digital-la preserve panna unga udhavi venum!
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <a
