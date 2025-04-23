@@ -16,8 +16,7 @@ const Navbar = () => {
     { name: 'Preview Poems', path: '/preview', icon: <Book className="h-4 w-4 mr-1" /> },
     { name: 'Package Info', path: '/package', icon: <Package className="h-4 w-4 mr-1" /> },
     { name: 'Team', path: '/team', icon: <Users className="h-4 w-4 mr-1" /> },
-    { name: 'Submit', path: '/submit', icon: <Send className="h-4 w-4 mr-1" /> },
-    // New nav item for the dataset page
+    { name: 'Submit', path: 'https://forms.gle/WdzmmM2LaieuCevJ8', icon: <Send className="h-4 w-4 mr-1" />, external: true },
     { name: 'Dataset', path: 'https://huggingface.co/datasets/anandsundaramoorthysa/TamilKavi', icon: <Download className="h-4 w-4 mr-1" />, external: true },
   ];
 

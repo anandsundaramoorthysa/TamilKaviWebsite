@@ -257,7 +257,7 @@ Meaning: தாயின் மடியில் நன்காக, அன்�
                 </p>
 
                 <div className="mt-6 flex">
-                  <Link to="/submit" className="btn-secondary flex items-center">
+                  <Link to="https://forms.gle/WdzmmM2LaieuCevJ8" target="_blank" className="btn-secondary flex items-center">
                     <Send className="mr-2 h-5 w-5" />
                     Go to Submission Form
                   </Link>

@@ -39,7 +39,7 @@ const HomePage = () => {
                 <Github className="mr-2 h-5 w-5" />
                 GitHub-ல பாக்கலாம்
               </a>
-              <Link to="/submit" className="btn-primary flex items-center">
+              <Link to="https://forms.gle/WdzmmM2LaieuCevJ8" target="_blank" className="btn-primary flex items-center">
                 <Heart className="mr-2 h-5 w-5" />
                 உங்க கவிதையைச் சேர்க்கவும்
               </Link>
@@ -87,7 +87,7 @@ const HomePage = () => {
             <Link to="/contribute" className="btn-primary">
               எப்படி contribute பண்ணலாம்?
             </Link>
-            <Link to="/submit" className="btn-secondary">
+            <Link to="https://forms.gle/WdzmmM2LaieuCevJ8" target="_blank" className="btn-secondary">
               இப்போதே கவிதைச் சேர்க்கவும்
             </Link>
           </div>

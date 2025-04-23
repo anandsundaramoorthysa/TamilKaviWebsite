@@ -16,7 +16,7 @@ const PreviewPage = () => {
   const [filterCategory, setFilterCategory] = useState('');
   const [filterTitle, setFilterTitle] = useState(''); // State for title filter (will now hold a selected title)
 
-  // --- Derived state/variables for dropdown options ---
+  // --- Derived state/variables for dropdown options and filtering ---
   // Use useMemo to memoize these calculations for performance
 
   // Get unique author names for the Author dropdown
@@ -24,54 +24,104 @@ const PreviewPage = () => {
     const authors = Array.from(new Set(poemsData.map(author => author.author)));
     // Capitalize for display in dropdown, but keep original case in state for filtering
     return ['', ...authors.map(name => name.charAt(0).toUpperCase() + name.slice(1))]; // Add empty string for "All Authors" option
-  }, []); // Recalculate only if poemsData changes (unlikely in this case)
+  }, [poemsData]); // Recalculate only if poemsData changes (unlikely in this case)
 
-  // Get books for the selected author to derive Book and Category options
+  // Get books for the selected author (used by subsequent filters and display)
   const booksForSelectedAuthor = useMemo(() => {
     if (!filterAuthor) return [];
     const lowerCaseAuthor = filterAuthor.toLowerCase(); // Compare lowercase state with lowercase data
     const authorData = poemsData.find(author => author.author.toLowerCase() === lowerCaseAuthor);
     return authorData?.books || [];
-  }, [filterAuthor]); // Recalculate when filterAuthor changes
+  }, [filterAuthor, poemsData]); // Recalculate when filterAuthor changes or data changes
 
-  // Get unique book titles for the Book dropdown based on selected author
+  // Get unique book titles for the Book dropdown based on selected author or all authors
   const bookOptions = useMemo(() => {
-    const titles = Array.from(new Set(booksForSelectedAuthor.map(book => book.booktitle)));
+    let booksToProcess = [];
+    if (filterAuthor === '') {
+      // If no specific author is selected, get books from ALL authors
+      booksToProcess = poemsData.flatMap(author => author.books);
+    } else {
+      // If a specific author is selected, use the memoized result for that author
+      booksToProcess = booksForSelectedAuthor;
+    }
+    const titles = Array.from(new Set(booksToProcess.map(book => book.booktitle)));
     return ['', ...titles]; // Add empty string for "All Books" option
-  }, [booksForSelectedAuthor]); // Recalculate when booksForSelectedAuthor changes
+  }, [filterAuthor, poemsData, booksForSelectedAuthor]); // Dependencies needed for both branches
 
-  // Get books matching the selected author AND selected book title
+  // Get books matching the selected author AND selected book title (used by subsequent filters and display)
   const booksForSelectedBook = useMemo(() => {
-    if (!filterBook) return [];
-     // Filter books based on selected book title within the selected author's books
+     if (!filterAuthor || !filterBook) {
+         // This memo is specifically for when BOTH author and book are selected
+         return [];
+     }
+      // Filter books based on selected book title within the selected author's books
     return booksForSelectedAuthor.filter(book => book.booktitle === filterBook);
-  }, [booksForSelectedAuthor, filterBook]); // Recalculate when booksForSelectedAuthor or filterBook changes
+  }, [booksForSelectedAuthor, filterBook, filterAuthor]); // Recalculate when booksForSelectedAuthor, filterBook, or filterAuthor changes
 
-  // Get unique categories for the Category dropdown based on selected book
+
+  // Get unique categories for the Category dropdown based on selected book(s)
   const categoryOptions = useMemo(() => {
-    // Collect categories from all books matching the selected book title (within the selected author)
-    const categories = Array.from(new Set(booksForSelectedBook
+    let booksToProcess = [];
+    if (filterAuthor === '') {
+      // All authors
+      booksToProcess = poemsData.flatMap(author => author.books);
+    } else {
+      // Specific author
+      booksToProcess = booksForSelectedAuthor;
+    }
+
+    if (filterBook !== '') {
+      // If a specific book is selected within the current scope (all or author's), filter further
+      booksToProcess = booksToProcess.filter(book => book.booktitle === filterBook);
+    }
+
+    const categories = Array.from(new Set(booksToProcess
       .map(book => book.category)
       .filter(category => category) // Filter out empty/undefined categories
     ));
-     return ['', ...categories]; // Add empty string for "All Categories" option
-  }, [booksForSelectedBook]); // Recalculate when booksForSelectedBook changes
+    return ['', ...categories]; // Add empty string for "All Categories" option
+  }, [filterAuthor, filterBook, poemsData, booksForSelectedAuthor]); // Dependencies
 
-   // Get poems matching the selected author, book, AND category to derive Title options
-   const poemsForSelectedCategory = useMemo(() => {
-       // Need selected book and category to narrow down to relevant poems
-       if (!filterCategory || booksForSelectedBook.length === 0 || !filterBook) return [];
-       // Find books matching the selected book title AND category
-       const matchingBooks = booksForSelectedBook.filter(book => book.category === filterCategory);
-       return matchingBooks.flatMap(book => book.context); // Flatten all poems from matching books/categories
-   }, [booksForSelectedBook, filterCategory, filterBook]); // Recalculate when booksForSelectedBook, filterCategory, or filterBook changes
+    // Get poems matching the selected author, book, AND category (used by subsequent filters and display)
+    const poemsForSelectedCategory = useMemo(() => {
+        // This memo is for when Author, Book, AND Category are selected
+        if (!filterAuthor || !filterBook || !filterCategory || booksForSelectedBook.length === 0) return [];
+        // Find books matching the selected book title AND category
+        const matchingBooks = booksForSelectedBook.filter(book => book.category === filterCategory);
+        return matchingBooks.flatMap(book => book.context); // Flatten all poems from matching books/categories
+    }, [booksForSelectedBook, filterCategory, filterBook, filterAuthor]); // Recalculate when booksForSelectedBook, filterCategory, filterBook, or filterAuthor changes
 
-   // Get unique poem titles for the Title dropdown based on selected category
-   const titleOptions = useMemo(() => {
-       const titles = Array.from(new Set(poemsForSelectedCategory.map(poem => poem.title)));
-       return ['', ...titles]; // Add empty string for "All Titles" option
-   }, [poemsForSelectedCategory]); // Recalculate when poemsForSelectedCategory changes
 
+    // Get unique poem titles for the Title dropdown based on selected category(ies)
+    const titleOptions = useMemo(() => {
+        let poemsToProcess = [];
+        let booksToProcess = [];
+
+        if (filterAuthor === '') {
+            // All authors
+            booksToProcess = poemsData.flatMap(author => author.books);
+        } else {
+            // Specific author
+            booksToProcess = booksForSelectedAuthor;
+        }
+
+        if (filterBook !== '') {
+            // If a specific book is selected within the current scope, filter books further
+            booksToProcess = booksToProcess.filter(book => book.booktitle === filterBook);
+        }
+
+        if (filterCategory !== '') {
+            // If a specific category is selected within the current book scope, filter books further
+            // Then flatten poems from these filtered books
+            poemsToProcess = booksToProcess.filter(book => book.category === filterCategory).flatMap(book => book.context);
+        } else {
+             // If no specific category is selected, just flatten poems from the current book scope
+             poemsToProcess = booksToProcess.flatMap(book => book.context);
+        }
+
+        const titles = Array.from(new Set(poemsToProcess.map(poem => poem.title)));
+        return ['', ...titles]; // Add empty string for "All Titles" option
+    }, [filterAuthor, filterBook, filterCategory, poemsData, booksForSelectedAuthor]); // Dependencies. booksForSelectedBook is indirectly used via filterBook check. poemsForSelectedCategory is indirectly used via filterCategory check.
 
   // --- Filtering logic for display ---
 
@@ -114,16 +164,16 @@ const PreviewPage = () => {
 
   // Uncomment this useEffect to log filter values and dropdown options
   /*
-   useEffect(() => {
-     console.log("--- Filter State Updated ---");
-     console.log("Current Filters:", { filterAuthor, filterBook, filterCategory, filterTitle });
-     console.log("Author Options:", authorOptions);
-     console.log("Book Options for dropdown:", bookOptions);
-     console.log("Category Options for dropdown:", categoryOptions);
-     console.log("Title Options for dropdown:", titleOptions);
-     console.log("Filtered Authors for Display:", filteredAuthorsForDisplay); // Log filtered data
-     console.log("--------------------------");
-   }, [filterAuthor, filterBook, filterCategory, filterTitle, authorOptions, bookOptions, categoryOptions, titleOptions, filteredAuthorsForDisplay]);
+    useEffect(() => {
+      console.log("--- Filter State Updated ---");
+      console.log("Current Filters:", { filterAuthor, filterBook, filterCategory, filterTitle });
+      console.log("Author Options:", authorOptions);
+      console.log("Book Options for dropdown:", bookOptions);
+      console.log("Category Options for dropdown:", categoryOptions);
+      console.log("Title Options for dropdown:", titleOptions);
+      console.log("Filtered Authors for Display:", filteredAuthorsForDisplay); // Log filtered data
+      console.log("--------------------------");
+    }, [filterAuthor, filterBook, filterCategory, filterTitle, authorOptions, bookOptions, categoryOptions, titleOptions, filteredAuthorsForDisplay]);
   */
 
 
@@ -164,7 +214,7 @@ const PreviewPage = () => {
             {/* Book Filter */}
             <div>
                <label htmlFor="book-filter" className="block text-sm font-medium text-gray-700 mb-1">
-                Filter by Book
+               Filter by Book
               </label>
               <select
                 id="book-filter"
@@ -175,34 +225,30 @@ const PreviewPage = () => {
                    setFilterCategory(''); // Reset category filter when book changes
                    setFilterTitle(''); // Reset title filter when book changes
                 }}
-                // Disable book filter if no author is selected or no books for the selected author
-                disabled={!filterAuthor || bookOptions.length <= 1} // <= 1 because of "All Books" option
               >
                  {bookOptions.map(bookTitle => (
-                  <option key={bookTitle} value={bookTitle}>{bookTitle === '' ? 'All Books' : bookTitle}</option>
-                 ))}
+                   <option key={bookTitle} value={bookTitle}>{bookTitle === '' ? 'All Books' : bookTitle}</option>
+                  ))}
               </select>
             </div>
 
             {/* Category Filter */}
              <div>
                <label htmlFor="category-filter" className="block text-sm font-medium text-gray-700 mb-1">
-                Filter by Category
+               Filter by Category
                </label>
                <select
                  id="category-filter"
                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-tamil-blue focus:border-tamil-blue"
                  value={filterCategory}
                  onChange={(e) => {
-                     setFilterCategory(e.target.value);
-                     setFilterTitle(''); // Reset title filter when category changes
+                    setFilterCategory(e.target.value);
+                    setFilterTitle(''); // Reset title filter when category changes
                  }}
-                 // Disable category filter if no book is selected or no categories available for the selected book
-                 disabled={!filterBook || categoryOptions.length <= 1} // <= 1 because of "All Categories" option
                >
                   {categoryOptions.map(category => (
-                   <option key={category} value={category}>{category === '' ? 'All Categories' : category}</option>
-                   ))}
+                    <option key={category} value={category}>{category === '' ? 'All Categories' : category}</option>
+                    ))}
                </select>
              </div>
 
@@ -216,8 +262,6 @@ const PreviewPage = () => {
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-tamil-blue focus:border-tamil-blue"
                 value={filterTitle}
                 onChange={(e) => setFilterTitle(e.target.value)}
-                // Disable title filter if no category is selected or no titles for the selected category
-                disabled={!filterCategory || titleOptions.length <= 1} // <= 1 because of "All Titles" option
               >
                 {titleOptions.map(title => (
                   <option key={title} value={title}>{title === '' ? 'All Titles' : title}</option>
@@ -240,7 +284,7 @@ const PreviewPage = () => {
                 {/* Display Author name only if showing multiple authors or a specific author is filtered */}
                   {(filterAuthor !== '' || filteredAuthorsForDisplay.length > 1) && (
                     <h2 className="text-2xl font-bold mb-6 text-tamil-blue-dark">
-                         {author.author.charAt(0).toUpperCase() + author.author.slice(1)} {/* Display capitalized author name */}
+                           {author.author.charAt(0).toUpperCase() + author.author.slice(1)} {/* Display capitalized author name */}
                     </h2>
                   )}
 
