@@ -27,7 +27,7 @@ const teamMembers: TeamMember[] = [
     instagram: 'https://instagram.com/anandsundaramoorthysa',
     website: 'https://anand.jigg.win',
     email: 'sanand03072005@gmail.com',
-    avatar: 'https://media.licdn.com/dms/image/v2/D4D03AQEg7Gw6Qi6AdA/profile-displayphoto-shrink_800_800/B4DZTUmfrIGcAc-/0/1738733660369?e=1749686400&v=beta&t=gkxOE9ruFyZYeosoSsn8UfbiKIJlYiMQLF-8zuQZYUc',
+    avatar: 'https://anand.jigg.win/Anand.jpg',
     bio: "LCM'25 | Tech & Finance Enthusiast | Blog Writer | Developer & Prompt Engineer | Explore Which I Love"
   },
   {
@@ -53,26 +53,6 @@ const TeamPage = () => {
         <h1 className="text-4xl font-extrabold text-center text-tamil-blue-dark mb-4">
           Enga Team!
         </h1>
-
-        {/* About Dataset */}
-        <div className="max-w-4xl mx-auto mb-20">
-          <h2 className="text-2xl font-semibold mb-6 text-center text-tamil-green-dark">
-            TamilKavi Dataset
-          </h2>
-          <p className="text-base text-gray-700 text-center px-4 mb-4">
-            TamilKavi ஒரு open-source முயற்சி. புதுப் புது தமிழ் கவிஞர்களோட கவிதைகளை சேகரிக்கவும், உபயோகிக்கவும் இந்த project உருவாக்கப்பட்டுள்ளது. இந்த Python package மூலமாக, அந்த கவிதைகளை website/app development, AI/ML training, research-க்கு பயன்படுத்தலாம். தமிழ் இலக்கியத்தில் புதிய குரல்களை ஒரு Python package-க்குள் கொண்டு வருவதுதான் இந்த முயற்சியின் முக்கிய நோக்கம்!
-          </p>
-          <ul className="text-sm text-gray-600 px-6 list-disc list-inside space-y-1">
-            <li><strong>புதிய கவிஞர்கள்:</strong> உங்க சொந்த தமிழ் கவிதைகளை digital format-ல் சேர்த்து உலகத்துடன் பகிரலாம்.</li>
-            <li><strong>கவிதை ரசிகர்கள்:</strong> புதுசா எழுதப்பட்ட தமிழ் கவிதைகளை browse பண்ணலாம்.</li>
-            <li><strong>ஆசிரியர்களும் மாணவர்களும்:</strong> Project work, literary analysis-க்கு real-world Tamil content.</li>
-            <li><strong>Developers & Researchers:</strong> Web/App development, chatbot training, AI/ML experimentation.</li>
-          </ul>
-          <p className="text-base text-gray-700 text-center px-4 mt-4">
-            பாரம்பரிய தமிழ் இலக்கியத்தையும், இன்றைய Python tech-யையும் இணைக்கும் ஒரு digital மேடையாக TamilKavi உருவாகணும் என்பது எங்களோட நோக்கம்.
-          </p>
-        </div>
-
         {/* Core Team */}
         <div className="max-w-4xl mx-auto mb-20">
           <h2 className="text-2xl font-semibold mb-8 text-center text-tamil-green-dark">
