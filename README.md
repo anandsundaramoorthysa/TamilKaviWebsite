@@ -1,6 +1,6 @@
 # Tamil Kavi Website
 
-The official website and online interface for the Tamil Kavi project.
+The official website and online interface for the TamilKavi project.
 
 ## Table of Contents
 
@@ -53,11 +53,11 @@ To set up and run the website locally for development or testing:
     ```bash
     npm start # or yarn start or pnpm start
     ```
-    This will start the development server, and the website should be accessible in your browser, usually at `http://localhost:3000`.
+    This will start the development server, and the website should be accessible in your browser, usually at `http://localhost:8080`.
 
 ## Features
 
-* Online Browse and exploration of the Tamil poetry collection.
+* Online browsing and exploration of the Tamil poetry collection.
 * Filtering and searching capabilities for poems, authors, and books.
 * Information about the TamilKavi Python package and dataset.
 * A dedicated submission form for contributing new poems to the collection.
