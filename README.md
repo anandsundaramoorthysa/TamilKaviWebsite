@@ -42,8 +42,8 @@ To set up and run the website locally for development or testing:
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/anandsundaramoorthysa/tamilkaviwebsite.git](https://github.com/anandsundaramoorthysa/tamilkaviwebsite.git) # Replace with the actual repo URL
-    cd tamilkaviwebsite # Replace with the actual repo directory name
+    git clone [https://github.com/anandsundaramoorthysa/tamilkaviwebsite.git](https://github.com/anandsundaramoorthysa/tamilkaviwebsite.git) 
+    cd tamilkaviwebsite 
     ```
 2.  **Install dependencies:** Make sure you have Node.js and npm/yarn/pnpm installed. Then run:
     ```bash
