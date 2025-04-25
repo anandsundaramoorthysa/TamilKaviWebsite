@@ -64,7 +64,7 @@ const PackagePage = () => {
               <div>
                 <p className="text-sm text-gray-500 mb-1">Current Version</p>
                 {/* Update Version if needed */}
-                <p className="font-semibold">0.3.0</p>
+                <p className="font-semibold">0.4.0</p>
               </div>
               <div>
                 <p className="text-sm text-gray-500 mb-1">License</p>
