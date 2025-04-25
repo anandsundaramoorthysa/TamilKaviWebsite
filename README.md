@@ -101,7 +101,5 @@ If you have any questions, feedback, or suggestions regarding the website or the
 ## Acknowledge
 
 We want to express our gratitude to:
-
-* The open-source community and the developers of the libraries used in this project (React, Tailwind CSS, Lucide React, etc.).
 * Praveen Kumar Purushothaman ([@praveenscience](https://github.com/praveenscience)) for providing the subdomain [tamilkavi.jigg.win](https://tamilkavi.jigg.win) for the website.
-* The association with the [TamilKavi Python Package](https://github.com/anandsundaramoorthysa/tamilkavi) and the contributors of the poetry data within it.
+* The association with the [TamilKavi Python Package](https://github.com/anandsundaramoorthysa/tamilkavi).
