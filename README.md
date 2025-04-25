@@ -84,7 +84,7 @@ If you'd like to contribute to the development of the website itself (fixing bug
 
 The easiest way to contribute new Tamil poems to the collection is by using the dedicated submission form on the website.
 
-[Go to Submission Form](https://tamilkavi.jigg.win/contribute)
+[Go to Submission Form](https://forms.gle/RWFyJnJLLsaS6N8X9)
 
 Alternatively, if you are comfortable with GitHub and contributing directly to the data source, please refer to the contribution guidelines in the [TamilKavi Python Package repository](https://github.com/anandsundaramoorthysa/tamilkavi).
 
