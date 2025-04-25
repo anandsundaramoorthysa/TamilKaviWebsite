@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Clipboard, Code, CopyCheck, Database, Download, Package, Terminal } from 'lucide-react'; // Import Terminal icon
+import { Clipboard, Code, CopyCheck, Database, Download, Package, Terminal } from 'lucide-react'; 
 import { useState } from 'react';
 
 const PackagePage = () => {
@@ -10,11 +10,10 @@ const PackagePage = () => {
 
   const [copied, setCopied] = useState<Record<string, boolean>>({
     install: false,
-    help: false, // Add key for help command copy
-    example1: false, // Add keys for example commands
+    help: false,
+    example1: false,
     example2: false,
     example3: false
-    // Add more keys for other examples if needed
   });
 
   const copyToClipboard = (text: string, key: string) => {
@@ -22,10 +21,9 @@ const PackagePage = () => {
     setCopied({ ...copied, [key]: true });
     setTimeout(() => {
       setCopied({ ...copied, [key]: false });
-    } , 3000); // Added space before 3000, consistent style
+    } , 3000); 
   };
 
-  // --- CLI Usage Examples Data ---
   const cliExamples = [
     { key: 'getHelp', command: 'tamilkavi -h', description: 'Get detailed help' },
     { key: 'listAuthors', command: 'tamilkavi -a', description: 'List all authors' },
@@ -56,14 +54,12 @@ const PackagePage = () => {
               <div className="bg-tamil-blue/10 p-3 rounded-full mr-4">
                 <Package className="h-6 w-6 text-tamil-blue" />
               </div>
-              {/* Updated Package Name */}
               <h2 className="text-2xl font-bold">tamilkavi</h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <p className="text-sm text-gray-500 mb-1">Current Version</p>
-                {/* Update Version if needed */}
                 <p className="font-semibold">0.4.0</p>
               </div>
               <div>
@@ -72,13 +68,11 @@ const PackagePage = () => {
               </div>
               <div>
                 <p className="text-sm text-gray-500 mb-1">Release Date</p>
-                {/* Updated Release Date */}
-                <p className="font-semibold">April 25, 2025</p> {/* Use current date */}
+                <p className="font-semibold">April 25, 2025</p> 
               </div>
               <div>
                 <p className="text-sm text-gray-500 mb-1">Python Version</p>
-                {/* Updated Python Version */}
-                <p className="font-semibold">3.7+</p> {/* Based on setup.py */}
+                <p className="font-semibold">3.7+</p> 
               </div>
             </div>
           </div>
@@ -95,7 +89,6 @@ const PackagePage = () => {
 
             <div className="relative">
               <pre className="bg-gray-800 text-green-400 p-4 rounded-md overflow-x-auto">
-                {/* Updated Installation Command */}
                 pip install tamilkavi
               </pre>
               <button
@@ -108,10 +101,9 @@ const PackagePage = () => {
             </div>
           </div>
 
-          {/* CLI Usage Section - New Section */}
           <div className="mb-10">
             <h2 className="text-2xl font-bold mb-4 flex items-center">
-              <Terminal className="mr-2 h-6 w-6" /> {/* Using Terminal icon for CLI */}
+              <Terminal className="mr-2 h-6 w-6" /> 
               CLI Usage
             </h2>
              <p className="mb-4">
@@ -139,7 +131,7 @@ const PackagePage = () => {
             </p>
 
             <div className="space-y-4">
-              {cliExamples.slice(1).map((example) => ( // Map over examples starting from the second one
+              {cliExamples.slice(1).map((example) => (
                 <div key={example.key}>
                   <h3 className="text-lg font-semibold mb-2">{example.description}</h3>
                   <div className="relative">
@@ -160,7 +152,6 @@ const PackagePage = () => {
 
           </div>
 
-          {/* Data Structure - Kept as is */}
           <div className="mb-10">
             <h2 className="text-2xl font-bold mb-4 flex items-center">
               <Database className="mr-2 h-6 w-6" />
@@ -197,15 +188,14 @@ const PackagePage = () => {
             </div>
           </div>
 
-          {/* Contribute Section - Updated Links */}
           <div className="bg-tamil-earth-light p-8 rounded-lg text-center">
-            <h3 className="text-xl font-bold mb-4">Want to contribute to the project?</h3> {/* Updated text slightly */}
+            <h3 className="text-xl font-bold mb-4">Want to contribute to the project?</h3> 
             <div className="flex flex-wrap gap-4 justify-center">
               <a
                 href="https://github.com/anandsundaramoorthysa/tamilkavi" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary" // Assuming btn-primary class exists for styling
+                className="btn-primary" 
               >
                 Visit on GitHub
               </a>
@@ -213,20 +203,19 @@ const PackagePage = () => {
                 href="https://pypi.org/project/tamilkavi/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-secondary" // Assuming btn-secondary class exists for styling
+                className="btn-secondary" 
               >
                 View on PyPI
               </a>
             </div>
-             {/* Add link to submission form if needed, can be another button */}
-             {/* <a
+             <a
                 href="https://tamilkavi.jigg.win/contribute"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-tertiary" // Assuming another class for styling
+                className="btn-tertiary" 
               >
                 Go to Submission Form
-              </a> */}
+              </a>
           </div>
         </div>
       </div>
