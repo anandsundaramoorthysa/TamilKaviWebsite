@@ -16,7 +16,7 @@ The official website and online interface for the TamilKavi project.
 
 ## About Project
 
-The Tamil Kavi Website ([tamilkavi.jigg.win](https://tamilkavi.jigg.win)) serves as the online presence for the Tamil Kavi project. It provides a user-friendly interface to explore the collection of Tamil poetry, learn about the associated Python package and dataset, and offers a convenient way for contributors to submit new poems to the collection via a dedicated submission form.
+The Tamil Kavi Website ([tamilkavi.jigg.win](https://tamilkavi.jigg.win)) serves as the online presence for the TamilKavi project. It provides a user-friendly interface to explore the collection of Tamil poetry, learn about the associated Python package and dataset, and offers a convenient way for contributors to submit new poems to the collection via a dedicated submission form.
 
 This website complements the [TamilKavi Python Package](https://github.com/anandsundaramoorthysa/tamilkavi) by offering a browser-based experience.
 
