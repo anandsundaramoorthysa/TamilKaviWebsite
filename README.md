@@ -62,7 +62,7 @@ To set up and run the website locally for development or testing:
 * Information about the TamilKavi Python package and dataset.
 * A dedicated submission form for contributing new poems to the collection.
 * Responsive design for various devices.
-* Links to the project's GitHub repository and PyPI page.
+* Links to the project's GitHub repository, Hugging Face Dataset and PyPI page.
 
 ## Contribution
 
