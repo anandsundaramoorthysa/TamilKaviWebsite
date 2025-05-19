@@ -1,4 +1,4 @@
-# Tamil Kavi Website
+# TamilKavi Website
 
 The official website and online interface for the TamilKavi project.
 
