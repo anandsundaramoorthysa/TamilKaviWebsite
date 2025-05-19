@@ -1,4 +1,3 @@
-// TeamPage.tsx
 import React, { useEffect } from 'react';
 import { Github, Globe, Mail, Twitter } from 'lucide-react';
 import { FaLinkedin, FaTelegram, FaInstagram } from 'react-icons/fa';
@@ -6,7 +5,7 @@ import { FaLinkedin, FaTelegram, FaInstagram } from 'react-icons/fa';
 interface TeamMember {
   name: string;
   role: string;
-  github: string;
+  github?: string;
   linkedin?: string;
   telegram?: string;
   instagram?: string;
@@ -28,7 +27,7 @@ const teamMembers: TeamMember[] = [
     website: 'https://anand.jigg.win',
     email: 'sanand03072005@gmail.com',
     avatar: 'https://anand.jigg.win/Anand.jpg',
-    bio: "LCM'25 | Tech & Finance Enthusiast | Blog Writer | Developer & Prompt Engineer | Explore Which I Love"
+    bio: "LCM'25 | Tech & Finance Enthusiast | Blog Writer | Developer & Prompt Engineer | Explore Which I Love | Unexpected Freelancer"
   },
   {
     name: 'Booapalan S',
@@ -38,6 +37,13 @@ const teamMembers: TeamMember[] = [
     email: 'content.boopalan@gmail.com',
     avatar: 'https://gitlab.com/uploads/-/system/user/avatar/22134717/avatar.png',
     bio: "I'm a tech enthusiast who loves working with Python, open-source tools, and Linux systems."
+  },
+  {
+    name: 'Selvakumar Duraipandian',
+    role: 'Sponsor (Domain Supporter)',
+    linkedin: 'https://www.linkedin.com/in/selvakumarduraipandian/',
+    avatar: 'https://media.licdn.com/dms/image/v2/C5103AQFL2vRPpxSqZA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1549298411428?e=1753315200&v=beta&t=WtrHz1qll69c9PVn2emVexCc93hAw_RwTjkxzlaIFmk',
+    bio: '🙏 Thanks to him for sponsoring the tamilkavi.com domain for us'
   }
 ];
 
@@ -53,15 +59,16 @@ const TeamPage = () => {
         <h1 className="text-4xl font-extrabold text-center text-tamil-blue-dark mb-4">
           Enga Team!
         </h1>
+
         {/* Core Team */}
         <div className="max-w-4xl mx-auto mb-20">
           <h2 className="text-2xl font-semibold mb-8 text-center text-tamil-green-dark">
-            முக்கிய அணி
+            Mukkiya Ani (முக்கிய அணி)
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {teamMembers.map((member) => (
+            {teamMembers.slice(0, 2).map((member) => (
               <div
-                key={member.github}
+                key={member.github || member.linkedin}
                 className="bg-white rounded-3xl shadow-md border border-gray-200 hover:shadow-xl transition-all duration-300 p-6 group hover:-translate-y-1"
               >
                 <div className="flex flex-col items-center text-center">
@@ -116,6 +123,39 @@ const TeamPage = () => {
           </div>
         </div>
 
+        {/* Sponsor */}
+        <div className="max-w-xl mx-auto mb-20">
+          <h2 className="text-2xl font-semibold mb-6 text-center text-tamil-gold-dark">
+            Sponsor
+          </h2>
+          <div className="grid grid-cols-1 gap-6">
+            {teamMembers.slice(2, 3).map((member) => (
+              <div
+                key={member.linkedin}
+                className="bg-white rounded-3xl shadow-md border border-gray-200 hover:shadow-xl transition-all duration-300 p-6 group hover:-translate-y-1"
+              >
+                <div className="flex flex-col items-center text-center">
+                  <img
+                    src={member.avatar}
+                    alt={member.name}
+                    className="w-24 h-24 rounded-full border-4 border-tamil-blue-dark object-cover mb-4 transition-transform group-hover:scale-105"
+                  />
+                  <h3 className="text-xl font-semibold text-gray-900">{member.name}</h3>
+                  <p className="text-sm text-tamil-blue-dark mb-2">{member.role}</p>
+                  <p className="text-sm text-gray-600 mb-4">{member.bio}</p>
+                  {member.linkedin && (
+                    <div className="flex gap-3 text-tamil-blue-dark justify-center flex-wrap">
+                      <a href={member.linkedin} target="_blank" rel="noreferrer">
+                        <FaLinkedin className="h-5 w-5 hover:text-[#0077b5]" />
+                      </a>
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Contributors */}
         <div className="max-w-5xl mx-auto mb-20">
           <h2 className="text-2xl font-semibold mb-6 text-center text-tamil-gold-dark">
@@ -129,12 +169,12 @@ const TeamPage = () => {
               href="https://github.com/Gagan9025"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-40 flex flex-col items-center text-center bg-white rounded-2xl shadow-sm border border-gray-200 hover:shadow-md transform hover:scale-[1.02] transition-all duration-300 p-4"
+              className="w-40 flex flex-col items-center text-center bg-white rounded-2xl shadow-sm border border-gray-200 hover:shadow-md transform hover:scale-[1.02] transition-all duration-300 p-4 group"
             >
               <img
                 src="https://media.licdn.com/dms/image/v2/D5603AQEx3q462RbDsQ/profile-displayphoto-shrink_400_400/B56ZVqrXv4HQAg-/0/1741251513543?e=1749686400&v=beta&t=o8LESh6krvXhF_xFPHZzL8ISib3Cqvz3X9ed24LpQ1c"
                 alt="Gagan C"
-                className="w-20 h-20 rounded-full mb-2 shadow-sm object-cover"
+                className="w-20 h-20 rounded-full border-4 border-tamil-blue-dark object-cover mb-2 transition-transform group-hover:scale-105"
               />
               <span className="text-sm font-medium text-gray-800 hover:text-tamil-blue transition-colors">
                 Gagan C
@@ -145,12 +185,12 @@ const TeamPage = () => {
               href="https://github.com/Rohith20062006"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-40 flex flex-col items-center text-center bg-white rounded-2xl shadow-sm border border-gray-200 hover:shadow-md transform hover:scale-[1.02] transition-all duration-300 p-4"
+              className="w-40 flex flex-col items-center text-center bg-white rounded-2xl shadow-sm border border-gray-200 hover:shadow-md transform hover:scale-[1.02] transition-all duration-300 p-4 group"
             >
               <img
                 src="https://media.licdn.com/dms/image/v2/D5603AQFIuZCmYvwFgQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1723296293067?e=1749686400&v=beta&t=Emv3Gdh_GynlSbBkg5fFC6YMZWBk_mWc00SyI6ChvO4"
-                alt="Rohtih P"
-                className="w-20 h-20 rounded-full mb-2 shadow-sm object-cover"
+                alt="Rohith P"
+                className="w-20 h-20 rounded-full border-4 border-tamil-blue-dark object-cover mb-2 transition-transform group-hover:scale-105"
               />
               <span className="text-sm font-medium text-gray-800 hover:text-tamil-blue transition-colors">
                 Rohith P
@@ -159,9 +199,10 @@ const TeamPage = () => {
           </div>
         </div>
 
+
         {/* Join Us */}
         <div className="max-w-3xl mx-auto text-center py-12 px-6 bg-white/70 backdrop-blur-md border border-tamil-earth rounded-xl shadow">
-          <h2 className="text-2xl font-semibold text-tamil-blue-dark mb-4">Enga Kooda Serunga!</h2>
+          <h2 className="text-2xl font-semibold text-tamil-blue-dark mb-4">Enga Kooda Serunga! (எங்க கூட சேருங்க!)</h2>
           <p className="text-base text-gray-700 mb-6">
             Nee oru kavignana? Developer-a? Illa Tamil rasigan-a? Tamil literature-ai digital-la preserve panna unga udhavi venum!
           </p>
