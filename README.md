@@ -1,4 +1,4 @@
-# Tamil Kavi Website
+# TamilKavi Website
 
 The official website and online interface for the TamilKavi project.
 
@@ -101,5 +101,8 @@ If you have any questions, feedback, or suggestions regarding the website or the
 ## Acknowledge
 
 We want to express our gratitude to:
-* Praveen Kumar Purushothaman ([@praveenscience](https://github.com/praveenscience)) for providing the subdomain [tamilkavi.jigg.win](https://tamilkavi.jigg.win) for the website.
+
+* **Praveen Kumar Purushothaman** ([@praveenscience](https://github.com/praveenscience)) for providing the subdomain [tamilkavi.jigg.win](https://tamilkavi.jigg.win) for the website.
+* **[Selvakumar Duraipandian](https://www.linkedin.com/in/selvakumarduraipandian/)** – *Sponsor (Domain Supporter)*
+  🙏 Thanks to him for sponsoring the **tamilkavi.com** domain for us.
 * The association with the [TamilKavi Python Package](https://github.com/anandsundaramoorthysa/tamilkavi).
