@@ -27,7 +27,7 @@ const teamMembers: TeamMember[] = [
     website: 'https://anand.jigg.win',
     email: 'sanand03072005@gmail.com',
     avatar: 'https://anand.jigg.win/Anand.jpg',
-    bio: "LCC'27 | Tech & Finance Enthusiast | Blog Writer | Developer & Prompt Engineer | Explore Which I Love | Unexpected Freelancer"
+    bio: "LCC’27 | Tech & Finance Enthusiast | Blog Writer | Builder of Future Free | Developer & Prompt Engineer | Explore Which I Love | Unexpected Freelancer"
   },
   {
     name: 'Booapalan S',
