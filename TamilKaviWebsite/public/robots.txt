@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://tamilkavi.com/sitemap.xml
+Sitemap: https://tamilkavi.anandsundaramoorthy.com/sitemap.xml
