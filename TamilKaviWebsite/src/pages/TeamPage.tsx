@@ -24,9 +24,9 @@ const teamMembers: TeamMember[] = [
     linkedin: 'https://linkedin.com/in/anandsundaramoorthysa',
     telegram: 'https://t.me/anandsundaramoorthysa',
     instagram: 'https://instagram.com/anandsundaramoorthysa',
-    website: 'https://anand.jigg.win',
+    website: 'https://www.anandsundaramoorthy.com',
     email: 'sanand03072005@gmail.com',
-    avatar: 'https://anand.jigg.win/Anand.jpg',
+    avatar: 'https://www.anandsundaramoorthy.com/Anand.webp',
     bio: "LCC’27 | Tech & Finance Enthusiast | Blog Writer | Builder of Future Free | Developer & Prompt Engineer | Explore Which I Love | Unexpected Freelancer"
   },
   {
@@ -43,7 +43,7 @@ const teamMembers: TeamMember[] = [
     role: 'Sponsor (Domain Supporter)',
     linkedin: 'https://www.linkedin.com/in/selvakumarduraipandian/',
     avatar: 'https://media.licdn.com/dms/image/v2/C5103AQFL2vRPpxSqZA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1549298411428?e=1753315200&v=beta&t=WtrHz1qll69c9PVn2emVexCc93hAw_RwTjkxzlaIFmk',
-    bio: '🙏 Thanks to him for sponsoring the tamilkavi.com domain for us'
+    bio: '🙏 Thanks to him for sponsoring the tamilkavi.com domain for a year, which the website ran on before moving to tamilkavi.anandsundaramoorthy.com'
   }
 ];
 

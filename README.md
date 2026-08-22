@@ -16,7 +16,7 @@ The official website and online interface for the TamilKavi project.
 
 ## About Project
 
-The Tamil Kavi Website ([tamilkavi.jigg.win](https://tamilkavi.jigg.win)) serves as the online presence for the TamilKavi project. It provides a user-friendly interface to explore the collection of Tamil poetry, learn about the associated Python package and dataset, and offers a convenient way for contributors to submit new poems to the collection via a dedicated submission form.
+The Tamil Kavi Website ([tamilkavi.anandsundaramoorthy.com](https://tamilkavi.anandsundaramoorthy.com)) serves as the online presence for the TamilKavi project. It provides a user-friendly interface to explore the collection of Tamil poetry, learn about the associated Python package and dataset, and offers a convenient way for contributors to submit new poems to the collection via a dedicated submission form.
 
 This website complements the [TamilKavi Python Package](https://github.com/anandsundaramoorthysa/tamilkavi) by offering a browser-based experience.
 
@@ -24,7 +24,7 @@ This website complements the [TamilKavi Python Package](https://github.com/anand
 
 Experience the Tamil Kavi Website live at:
 
-[https://tamilkavi.jigg.win/](https://tamilkavi.jigg.win/)
+[https://tamilkavi.anandsundaramoorthy.com/](https://tamilkavi.anandsundaramoorthy.com/)
 
 ## Technologies Used
 
@@ -63,6 +63,9 @@ To set up and run the website locally for development or testing:
 * A dedicated submission form for contributing new poems to the collection.
 * Responsive design for various devices.
 * Links to the project's GitHub repository, Hugging Face Dataset and PyPI page.
+* Correct Tamil rendering. The browser shapes Tamil script properly, which is why
+  the CLI's `--read` flag sends poems here -- no terminal on any operating system
+  can display Tamil correctly.
 
 ## Contribution
 
@@ -96,13 +99,15 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 If you have any questions, feedback, or suggestions regarding the website or the project, feel free to reach out to the authors:
 
-* **ANAND SUNDARAMOORTHY SA**: [sanand03072005@gmail.com](mailto:sanand03072005@gmail.com?subject=Question%20about%20Tamil%20Kavi%20Website&body=Dear%20Authors%2C%0A%0AI%20have%20a%20question%20regarding%20the%20Tamil%20Kavi%20website%20at%20tamilkavi.jigg.win%2E%0A%0A%5BYour%20Question%20Here%5D%0A%0AThank%20you%21%0A%5BYour%20Name%5D)
+* **ANAND SUNDARAMOORTHY SA**: [sanand03072005@gmail.com](mailto:sanand03072005@gmail.com?subject=Question%20about%20Tamil%20Kavi%20Website&body=Dear%20Authors%2C%0A%0AI%20have%20a%20question%20regarding%20the%20Tamil%20Kavi%20website%20at%20tamilkavi.anandsundaramoorthy.com%2E%0A%0A%5BYour%20Question%20Here%5D%0A%0AThank%20you%21%0A%5BYour%20Name%5D)
 
 ## Acknowledge
 
 We want to express our gratitude to:
 
-* **Praveen Kumar Purushothaman** ([@praveenscience](https://github.com/praveenscience)) for providing the subdomain [tamilkavi.jigg.win](https://tamilkavi.jigg.win) for the website.
+* **Praveen Kumar Purushothaman** ([@praveenscience](https://github.com/praveenscience)) – *Early Hosting Supporter*
+  🙏 Thanks to him for providing the subdomain **tamilkavi.jigg.win**, which the website ran on in its early days.
 * **[Selvakumar Duraipandian](https://www.linkedin.com/in/selvakumarduraipandian/)** – *Sponsor (Domain Supporter)*
-  🙏 Thanks to him for sponsoring the **tamilkavi.com** domain for us.
+  🙏 Thanks to him for sponsoring the **tamilkavi.com** domain for a year, which the website ran on
+  before moving to [tamilkavi.anandsundaramoorthy.com](https://tamilkavi.anandsundaramoorthy.com).
 * The association with the [TamilKavi Python Package](https://github.com/anandsundaramoorthysa/tamilkavi).

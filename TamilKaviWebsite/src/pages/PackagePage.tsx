@@ -26,6 +26,9 @@ const PackagePage = () => {
 
   const cliExamples = [
     { key: 'getHelp', command: 'tamilkavi -h', description: 'Get detailed help' },
+    { key: 'getVersion', command: 'tamilkavi --version', description: 'Show the installed version' },
+    { key: 'readInBrowser', command: 'tamilkavi -t "Poem Title" --read', description: 'Open the poem in your browser, where Tamil renders correctly' },
+    { key: 'tanglish', command: 'tamilkavi -t "Poem Title" -e', description: 'Show the poem in Tanglish, readable in any terminal on any OS' },
     { key: 'listAuthors', command: 'tamilkavi -a', description: 'List all authors' },
     { key: 'listBooks', command: 'tamilkavi -b', description: 'List all books from all authors' },
     { key: 'listTitles', command: 'tamilkavi -t', description: 'List all unique poem titles from all books' },
@@ -60,7 +63,7 @@ const PackagePage = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <p className="text-sm text-gray-500 mb-1">Current Version</p>
-                <p className="font-semibold">0.6.0</p>
+                <p className="font-semibold">0.7.1</p>
               </div>
               <div>
                 <p className="text-sm text-gray-500 mb-1">License</p>
@@ -68,7 +71,7 @@ const PackagePage = () => {
               </div>
               <div>
                 <p className="text-sm text-gray-500 mb-1">Release Date</p>
-                <p className="font-semibold">April 26, 2025</p> 
+                <p className="font-semibold">August 22, 2026</p> 
               </div>
               <div>
                 <p className="text-sm text-gray-500 mb-1">Python Version</p>
@@ -209,7 +212,7 @@ const PackagePage = () => {
               </a>
             </div>
              <a
-                href="https://tamilkavi.jigg.win/contribute"
+                href="https://tamilkavi.anandsundaramoorthy.com/contribute"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-tertiary" 
