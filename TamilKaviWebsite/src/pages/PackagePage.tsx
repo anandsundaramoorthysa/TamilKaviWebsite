@@ -29,6 +29,7 @@ const PackagePage = () => {
     { key: 'getVersion', command: 'tamilkavi --version', description: 'Show the installed version' },
     { key: 'readInBrowser', command: 'tamilkavi -t "Poem Title" --read', description: 'Open the poem in your browser, where Tamil renders correctly' },
     { key: 'tanglish', command: 'tamilkavi -t "Poem Title" -e', description: 'Show the poem in Tanglish, readable in any terminal on any OS' },
+    { key: 'readTanglish', command: 'tamilkavi -t "Poem Title" --read -e', description: 'Open the poem in your browser, romanised' },
     { key: 'listAuthors', command: 'tamilkavi -a', description: 'List all authors' },
     { key: 'listBooks', command: 'tamilkavi -b', description: 'List all books from all authors' },
     { key: 'listTitles', command: 'tamilkavi -t', description: 'List all unique poem titles from all books' },
@@ -63,7 +64,7 @@ const PackagePage = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <p className="text-sm text-gray-500 mb-1">Current Version</p>
-                <p className="font-semibold">0.8.0</p>
+                <p className="font-semibold">0.8.1</p>
               </div>
               <div>
                 <p className="text-sm text-gray-500 mb-1">License</p>
