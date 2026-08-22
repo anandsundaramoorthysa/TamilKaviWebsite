@@ -63,7 +63,7 @@ const PackagePage = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <p className="text-sm text-gray-500 mb-1">Current Version</p>
-                <p className="font-semibold">0.7.1</p>
+                <p className="font-semibold">0.8.0</p>
               </div>
               <div>
                 <p className="text-sm text-gray-500 mb-1">License</p>
